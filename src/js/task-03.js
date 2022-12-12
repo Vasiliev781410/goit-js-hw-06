@@ -1,6 +1,6 @@
 const images = [
   {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     alt: 'White and Black Long Fur Cat',
   },
   {
@@ -12,3 +12,17 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const list =  document.querySelector(".gallery");
+
+list.style.display = "flex";
+list.style.flexWrap = "wrap";
+list.style.alignItems = "center";
+list.style.justifyContent = "center";
+list.style.gap = "20px";
+list.style.listStyle = "none";
+
+const markup = images.map((image) => `<li><img src=${image.url} alt=${image.alt} width="1260" height="750"></li>`).join("");
+
+list.insertAdjacentHTML("beforeend", markup);
+
