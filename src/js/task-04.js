@@ -23,9 +23,9 @@ buttonDecrement.addEventListener("click", handleClick);
 buttonIncrement.addEventListener("click", handleClick);
 
 function updateDisplay(value,elem){     
-    if (value < 0){
-        elem.textContent = value;
-    } else {
-        elem.textContent = "+"+value;  
+    if (value > 0){  
+        elem.textContent = "+"+value; 
+        return; 
     }
+    elem.textContent = value;
 }    
