@@ -8,23 +8,24 @@ const buttonIncrement = span.nextElementSibling;
 let counterValue = 0;
 let counterValuePlus = 0;
 
-const handleClick = () => { 
-    --counterValue;
-    updateDisplay(counterValue);   
-};
-
-const handleClickPlus = () => {
-    ++counterValuePlus;  
-    updateDisplay(counterValuePlus);       
+const handleClick = (event) => {    
+    if (event.currentTarget === buttonDecrement){
+        --counterValue;
+        updateDisplay(counterValue,event.currentTarget);        
+    }else{        
+        ++counterValuePlus; 
+        updateDisplay(counterValuePlus,event.currentTarget);          
+    }
+      
 };
 
 buttonDecrement.addEventListener("click", handleClick);
-buttonIncrement.addEventListener("click", handleClickPlus);
+buttonIncrement.addEventListener("click", handleClick);
 
-function updateDisplay(value){     
+function updateDisplay(value,elem){     
     if (value < 0){
-        buttonDecrement.textContent = value;
+        elem.textContent = value;
     } else {
-        buttonIncrement.textContent = "+"+value;  
+        elem.textContent = "+"+value;  
     }
 }    
